@@ -34,6 +34,11 @@
     text-align: center;
     border: 2px solid;
 }
+.column8{
+	width:auto;
+	text-align:center;
+	border:2px solid;
+}
 .bs-example  {
     width: 100%;
     margin: 0 auto;
@@ -55,6 +60,15 @@
     width: 1300px;
     padding: 40px;
 }
+body{
+	
+}
+
+.wrap-table101 {
+	padding-left:240px;
+    padding: 40px;
+}
+
 
 
 
