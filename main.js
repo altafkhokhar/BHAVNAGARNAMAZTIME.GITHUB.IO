@@ -76,10 +76,13 @@ function isPinned(number)
 {
 	var pinnedItems = localStorage.getItem("pinned");
 	
-	var index = pinnedItems.indexOf(number);
-	if(index >0)
-		return true;
-	else
-		false;
+	if(pinnedItems != null && pinnedItems != '')
+	{
+		var index = pinnedItems.indexOf(number);
+		if(index >0)
+			return true;
+		else
+			false;
+	}
 	
 }
