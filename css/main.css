@@ -1,0 +1,62 @@
+
+.column1{
+    width: auto;
+    text-align: center;
+    border: 2px solid;
+}
+.column2{
+    width: auto;
+    text-align: center;
+    border: 2px solid;
+}
+.column3{
+    width: auto;
+    text-align: center;
+    border: 2px solid;
+}
+.column4{
+    width: auto;
+    text-align: center;
+    border: 2px solid;
+}
+.column5{
+    width: auto;
+    text-align: center;
+    border: 2px solid;
+}
+.column6{
+    width: auto;
+    text-align: center;
+    border: 2px solid;
+}
+.column7{
+    width: auto;
+    text-align: center;
+    border: 2px solid;
+}
+.bs-example  {
+    width: 100%;
+    margin: 0 auto;
+}
+  
+.container-table100 {
+    width: 100%;
+   
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+  
+.wrap-table100 {
+    width: 1300px;
+    padding: 40px;
+}
+
+
+
+
+    
