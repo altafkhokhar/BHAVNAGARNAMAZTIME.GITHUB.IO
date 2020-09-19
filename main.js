@@ -1,7 +1,7 @@
 
 function loadData() {
-	document.getElementById('divLoader').style.display = "block";
-	document.getElementById('divContent').style.display = "none";
+	//document.getElementById('divLoader').style.display = "block";
+	//document.getElementById('divContent').style.display = "none";
 	
 	
 	
@@ -49,8 +49,8 @@ function loadData() {
    
 		document.getElementById("result").innerHTML = localStorage.getItem("pinned");
       
-	   document.getElementById('divLoader').style.display = "none";
-	   document.getElementById('divContent').style.display = "block";
+	   //document.getElementById('divLoader').style.display = "none";
+	   //document.getElementById('divContent').style.display = "block";
 	});
 }
 var pinnedColor = "green";
