@@ -1,13 +1,18 @@
 
 function loadData() {
+	document.getElementById('divLoader').style.display = "block";
+	document.getElementById('divContent').style.display = "none";
+	
+	
+	
    var strHtml = '', dohar ='gsx$ઝોહર';
   
     $.getJSON('https://spreadsheets.google.com/feeds/list/1uzSDODaAGm56D9Cdw2Skmz8JvEldec1oFjQkLVGZnxw/od6/public/values?alt=json', function (data) {
-	var num = $('#divNum').text();      
+		var num = $('#divNum').text();      
 
 
       var sheetData = data.feed.entry;
-	    console.log(sheetData);
+	   
         var i, strHtml = '';
 
       for (i = 0; i < sheetData.length-4; i++) {
@@ -29,46 +34,52 @@ function loadData() {
 		var divMasjidName = $('#divMasjidName').text();                
 
 
-        var masjidname = sheetData[i][divMasjidName]['$t'];      
+        var masjidname = sheetData[i][divMasjidName]['$t'];   
+
+		var resultPinned = isPinned(number);	
+		var pinColor ='';
+		if(resultPinned)	
+			pinColor ="color:green;";
 		
-        strHtml = strHtml + '<tr><td class="column1">'+number+'<div></div></td><td class="column2">'+masjidname+'</td><td class="column3">'+fazar+'</td><td class="column4">'+dohar+'</td><td class="column5">'+ashar+'</td><td class="column6">'+isha+'</td><td class="column7">'+jumma+'</td><td class="column8"><i= class="fa fa-thumb-tack" style="font-Size:30px" aria-hidden="true"</i></td></tr>';
+        strHtml = strHtml + '<tr><td class="column1">'+number+'<div></div></td><td class="column2">'+masjidname+'</td><td class="column3">'+fazar+'</td><td class="column4">'+dohar+'</td><td class="column5">'+ashar+'</td><td class="column6">'+isha+'</td><td class="column7">'+jumma+'</td><td class="column8"><span id="spn'+number+'" onclick="pinIt('+number+')"><i id=iPin'+number+' class="fa fa-thumb-tack" style="font-Size:30px;'+pinColor+'" aria-hidden="true"</i></span></td></tr>';
 
-      }    
-      
-
+      }
 /**/
-   
-     
         document.getElementById('tbData').innerHTML += strHtml;
-      
-
-
- var chand = sheetData[sheetData.length-2][num]['$t']; 
-var mobileNumber  = sheetData[sheetData.length-1][num]['$t']; 
-
-
-
-      var strOtherDetail ='<table border=0  class="table-fill"><thead><th style="text-align:center;">'+chand +'</th></thead></table>';
-      var strMobile ='<table border=0  class="table-fill"><thead><th style="text-align:center;"><b>'+mobileNumber  +'</b></th></thead></table>';
-
-const months = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-let current_datetime = new Date()
-let formatted_date = current_datetime.getDate() + "-" + months[current_datetime.getMonth()] + "-" + current_datetime.getFullYear()
-
-      var strCurrentDates ='<table border=0  class="table-fill"><thead><th style="text-align:center;"><b>'+formatted_date +'</b></th></thead></table>';
-
-     // document.getElementById('demo').innerHTML +=  strOtherDetail ;
-     // document.getElementById('demo').innerHTML +=  strMobile;
-     // document.getElementById('demo').innerHTML +=  strCurrentDates ;
-
-
-$('html, body').animate({
-    scrollTop:$("#demo").offset().top},1000);
-
- 
-      
-   });
    
-   
+		document.getElementById("result").innerHTML = localStorage.getItem("pinned");
       
+	   document.getElementById('divLoader').style.display = "none";
+	   document.getElementById('divContent').style.display = "block";
+	});
+}
+var pinnedColor = "green";
+var unPinnedColor = '';
+
+function pinIt(number)
+{	
+	var pinnedItems = localStorage.getItem("pinned");
+	
+	
+	localStorage.setItem("pinned", pinnedItems + ","+ number);
+	document.getElementById('result').innerHTML = localStorage.getItem("pinned");
+	console.log(document.getElementById('spn'+number))
+	;
+	var currentColor = document.getElementById('iPin'+number).style.color;
+	if(currentColor ==pinnedColor)
+		document.getElementById('iPin'+number).style.color = unPinnedColor;
+	else
+		document.getElementById('iPin'+number).style.color = pinnedColor;
+}
+
+function isPinned(number)
+{
+	var pinnedItems = localStorage.getItem("pinned");
+	
+	var index = pinnedItems.indexOf(number);
+	if(index >0)
+		return true;
+	else
+		false;
+	
 }
