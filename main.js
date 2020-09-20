@@ -1,7 +1,7 @@
 
 function loadData() {
-	//document.getElementById('divLoader').style.display = "block";
-	//document.getElementById('divContent').style.display = "none";
+	document.getElementById('divLoader').style.display = "block";
+	document.getElementById('divContent').style.display = "none";
 	
 	
 	
@@ -54,8 +54,8 @@ function loadData() {
 		//}
 		
       
-	   //document.getElementById('divLoader').style.display = "none";
-	   //document.getElementById('divContent').style.display = "block";
+	   document.getElementById('divLoader').style.display = "none";
+	   document.getElementById('divContent').style.display = "block";
 	});
 }
 
@@ -64,6 +64,7 @@ var unPinnedColor = '';
 
 function pinIt(number)
 {
+	/*
 	if (typeof(Storage) !== "undefined") {
 		  // Code for localStorage/sessionStorage.
 
@@ -81,11 +82,13 @@ function pinIt(number)
 
 	} else {
 	  // Sorry! No Web Storage support..
-	}	
+	}
+	*/
 }
 
 function isPinned(number)
 {
+	/*
 	if (typeof(Storage) !== "undefined") {
 	
 		var pinnedItems = localStorage.getItem("pinned");
@@ -100,6 +103,7 @@ function isPinned(number)
 		}
 	}
 	else
+	*/
 		return false;
 	
 }
