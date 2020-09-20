@@ -47,42 +47,59 @@ function loadData() {
 /**/
         document.getElementById('tbData').innerHTML += strHtml;
    
-		document.getElementById("result").innerHTML = localStorage.getItem("pinned");
+	    //if (typeof(Storage) !== "undefined") {
+		//  document.getElementById("result").innerHTML = localStorage.getItem("pinned");
+		//} else {
+		  // Sorry! No Web Storage support..
+		//}
+		
       
 	   //document.getElementById('divLoader').style.display = "none";
 	   //document.getElementById('divContent').style.display = "block";
 	});
 }
+
 var pinnedColor = "green";
 var unPinnedColor = '';
 
 function pinIt(number)
-{	
-	var pinnedItems = localStorage.getItem("pinned");
-	
-	
-	localStorage.setItem("pinned", pinnedItems + ","+ number);
-	document.getElementById('result').innerHTML = localStorage.getItem("pinned");
-	console.log(document.getElementById('spn'+number))
-	;
-	var currentColor = document.getElementById('iPin'+number).style.color;
-	if(currentColor ==pinnedColor)
-		document.getElementById('iPin'+number).style.color = unPinnedColor;
-	else
-		document.getElementById('iPin'+number).style.color = pinnedColor;
+{
+	if (typeof(Storage) !== "undefined") {
+		  // Code for localStorage/sessionStorage.
+
+		var pinnedItems = localStorage.getItem("pinned");
+
+
+		localStorage.setItem("pinned", pinnedItems + ","+ number);
+		document.getElementById('result').innerHTML = localStorage.getItem("pinned");
+
+		var currentColor = document.getElementById('iPin'+number).style.color;
+		if(currentColor ==pinnedColor)
+			document.getElementById('iPin'+number).style.color = unPinnedColor;
+		else
+			document.getElementById('iPin'+number).style.color = pinnedColor;
+
+	} else {
+	  // Sorry! No Web Storage support..
+	}	
 }
 
 function isPinned(number)
 {
-	var pinnedItems = localStorage.getItem("pinned");
+	if (typeof(Storage) !== "undefined") {
 	
-	if(pinnedItems != null && pinnedItems != '')
-	{
-		var index = pinnedItems.indexOf(number);
-		if(index >0)
-			return true;
-		else
-			false;
+		var pinnedItems = localStorage.getItem("pinned");
+
+		if(pinnedItems != null && pinnedItems != '')
+		{
+			var index = pinnedItems.indexOf(number);
+			if(index >0)
+				return true;
+			else
+				false;
+		}
 	}
+	else
+		return false;
 	
 }
