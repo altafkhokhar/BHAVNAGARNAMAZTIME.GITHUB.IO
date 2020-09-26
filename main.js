@@ -64,7 +64,7 @@ var unPinnedColor = '';
 
 function pinIt(number)
 {
-	/*
+	
 	if (typeof(Storage) !== "undefined") {
 		  // Code for localStorage/sessionStorage.
 
@@ -83,12 +83,12 @@ function pinIt(number)
 	} else {
 	  // Sorry! No Web Storage support..
 	}
-	*/
+	
 }
 
 function isPinned(number)
 {
-	/*
+	
 	if (typeof(Storage) !== "undefined") {
 	
 		var pinnedItems = localStorage.getItem("pinned");
@@ -102,8 +102,7 @@ function isPinned(number)
 				false;
 		}
 	}
-	else
-	*/
+	else	
 		return false;
 	
 }
