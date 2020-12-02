@@ -72,7 +72,7 @@ function pinIt(number)
 
 
 		localStorage.setItem("pinned", pinnedItems + ","+ number);
-		document.getElementById('result').innerHTML = localStorage.getItem("pinned");
+		//document.getElementById('result').innerHTML = localStorage.getItem("pinned");
 
 		var currentColor = document.getElementById('iPin'+number).style.color;
 		if(currentColor ==pinnedColor)
